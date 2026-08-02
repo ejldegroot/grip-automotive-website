@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://grip-automotive.com/sitemap.xml
