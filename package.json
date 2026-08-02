@@ -1,0 +1,17 @@
+{
+  "name": "grip-automotive",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
+    "@netlify/blobs": "^10.7.11",
+    "astro": "^5.0.0"
+  }
+}
