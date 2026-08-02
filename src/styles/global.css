@@ -1,0 +1,711 @@
+/* Grip Automotive — huisstijl GripLab */
+:root {
+  --grey: #6E7A87;
+  --navy: #243755;
+  --navy-dark: #1A2940;
+  --blue: #4A6FA5;
+  --blue-dark: #3D5D8C;
+  --beige: #F4F5F7;
+  --white: #FFFFFF;
+  --ink: #243755;
+  --ink-soft: rgba(36, 55, 85, 0.72);
+  --line: rgba(36, 55, 85, 0.12);
+  --maxw: 1120px;
+  --radius: 14px;
+  --font-head: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--beige);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-head); font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.6rem, 5.5vw, 4.2rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
+h3 { font-size: 1.45rem; }
+
+p { max-width: 62ch; }
+
+a { color: var(--blue-dark); }
+
+img { max-width: 100%; display: block; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+.section { padding: 88px 0; }
+.section.tight { padding: 56px 0; }
+.section.navy { background: var(--navy); color: var(--white); }
+.section.navy h2, .section.navy h3 { color: var(--white); }
+.section.navy p { color: rgba(255,255,255,0.82); }
+.section.white { background: var(--white); }
+
+.kicker {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 14px;
+}
+.section.navy .kicker { color: var(--blue); }
+
+.lead { font-size: 1.18rem; color: var(--ink-soft); margin-top: 18px; }
+.section.navy .lead { color: rgba(255,255,255,0.85); }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 14px 30px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--blue); color: var(--white); box-shadow: 0 6px 20px rgba(74,111,165,0.35); }
+.btn-primary:hover { background: #5A80B5; }
+.btn-ghost { border: 1.5px solid var(--line); color: var(--ink); }
+.section.navy .btn-ghost { border-color: rgba(255,255,255,0.35); color: var(--white); }
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(244,245,247,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.logo { display: flex; align-items: center; gap: 2px; text-decoration: none; }
+.logo .grip { font-family: var(--font-head); font-weight: 800; font-size: 1.35rem; color: var(--navy); }
+.logo .auto { font-family: var(--font-head); font-weight: 800; font-size: 1.35rem; color: var(--grey); }
+
+nav.main { display: flex; align-items: center; gap: 28px; }
+nav.main a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+nav.main a:hover, nav.main a[aria-current="page"] { color: var(--navy); }
+nav.main .btn { padding: 10px 22px; }
+
+/* Hero */
+.hero { padding: 110px 0 90px; }
+.hero .lead { font-size: 1.25rem; max-width: 56ch; }
+.hero-actions { margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Cards */
+.grid { display: grid; gap: 24px; margin-top: 48px; }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+}
+.card h3 { margin-bottom: 10px; }
+.card p { font-size: 0.98rem; color: var(--ink-soft); }
+.section.navy .card { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); }
+.section.navy .card p { color: rgba(255,255,255,0.78); }
+
+.card .num {
+  font-family: var(--font-head);
+  font-size: 2rem;
+  color: var(--blue-dark);
+  display: block;
+  margin-bottom: 6px;
+}
+.section.navy .card .num { color: var(--blue); }
+
+/* Segment strip (hero visual) */
+.segment-strip {
+  margin-top: 64px;
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+  color: var(--white);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+}
+.segment-strip::before {
+  content: "";
+  position: absolute;
+  left: 40px; right: 40px; top: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), rgba(74,111,165,0.25));
+}
+.segment-strip .stop { position: relative; text-align: center; padding: 18px 8px; }
+.segment-strip .dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--blue);
+  margin: 0 auto 14px;
+  position: relative; z-index: 1;
+  box-shadow: 0 0 0 5px rgba(74,111,165,0.2);
+}
+.segment-strip .stop span { font-weight: 700; font-size: 0.95rem; display: block; }
+.segment-strip .stop small { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
+
+/* Feature rows */
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding: 48px 0;
+  border-top: 1px solid var(--line);
+}
+.feature-row:first-of-type { border-top: none; }
+.feature-row .visual {
+  background: var(--navy);
+  border-radius: var(--radius);
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+/* Footer */
+.site-footer { background: var(--navy-dark); color: rgba(255,255,255,0.75); padding: 56px 0 40px; }
+.site-footer .inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+  display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+}
+.site-footer a { color: rgba(255,255,255,0.85); text-decoration: none; }
+.site-footer a:hover { color: var(--blue); }
+.site-footer .cols { display: flex; gap: 64px; flex-wrap: wrap; }
+.site-footer h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 8px; font-size: 0.95rem; }
+.site-footer .bottom {
+  max-width: var(--maxw); margin: 40px auto 0; padding: 24px 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  font-size: 0.85rem; color: rgba(255,255,255,0.45);
+}
+
+/* Forms */
+form.demo-form { display: grid; gap: 18px; max-width: 560px; }
+form.demo-form label { font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 6px; }
+form.demo-form input, form.demo-form textarea, form.demo-form select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 13px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--ink);
+}
+form.demo-form input:focus, form.demo-form textarea:focus, form.demo-form select:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(74,111,165,0.18);
+}
+form.demo-form button { border: none; cursor: pointer; }
+
+/* CTA band */
+.cta-band { text-align: center; }
+.cta-band .btn { margin-top: 28px; }
+.cta-band p { margin-left: auto; margin-right: auto; }
+
+/* Prose helpers */
+.center { text-align: center; }
+.center p { margin-left: auto; margin-right: auto; }
+.mt-1 { margin-top: 12px; }
+.mt-2 { margin-top: 24px; }
+
+@media (max-width: 860px) {
+  .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
+  .feature-row { grid-template-columns: 1fr; gap: 28px; }
+  .segment-strip { grid-template-columns: 1fr; gap: 4px; padding: 28px; }
+  .segment-strip::before { display: none; }
+  .segment-strip .stop { display: flex; align-items: center; gap: 14px; text-align: left; padding: 10px 0; }
+  .segment-strip .dot { margin: 0; }
+  nav.main { gap: 16px; }
+  nav.main a:not(.btn) { display: none; }
+  .hero { padding: 72px 0 56px; }
+}
+
+/* Layer stack (3-lagen positionering) */
+.layer-stack { display: grid; gap: 12px; margin-top: 48px; }
+.layer {
+  border-radius: var(--radius);
+  padding: 26px 30px;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
+  align-items: baseline;
+}
+.layer .tag { font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.layer h3 { font-size: 1.2rem; margin-bottom: 4px; }
+.layer p { font-size: 0.95rem; margin: 0; max-width: none; }
+.layer.l3 {
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: 0 18px 40px rgba(36,55,85,0.28);
+}
+.layer.l3 .tag { color: var(--blue); }
+.layer.l3 p { color: rgba(255,255,255,0.8); }
+.layer.l2, .layer.l1 { background: var(--white); border: 1px solid var(--line); }
+.layer.l2 .tag, .layer.l1 .tag { color: var(--ink-soft); }
+.layer.l2 p, .layer.l1 p { color: var(--ink-soft); }
+.layer-note { margin-top: 18px; font-size: 0.95rem; color: var(--ink-soft); }
+@media (max-width: 860px) {
+  .layer { grid-template-columns: 1fr; gap: 6px; padding: 22px 22px; }
+}
+
+/* Module badge */
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(74,111,165,0.12);
+  color: var(--blue-dark);
+  margin-bottom: 12px;
+}
+.badge.soon { background: rgba(36,55,85,0.08); color: var(--ink-soft); }
+
+/* Benefit line in cards */
+.card .benefit {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+.section.navy .card .benefit { border-top-color: rgba(255,255,255,0.14); color: var(--blue); }
+
+/* Scroll-reveal — subtiel, respecteert reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .card.reveal:nth-child(2) { transition-delay: 0.08s; }
+  .card.reveal:nth-child(3) { transition-delay: 0.16s; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(36,55,85,0.10); }
+  .card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+}
+
+/* ── GripCoach chatwidget + WhatsApp ── */
+.float-stack {
+  position: fixed; right: 22px; bottom: 22px; z-index: 90;
+  display: flex; flex-direction: column; gap: 12px; align-items: flex-end;
+}
+.wa-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 54px; height: 54px; border-radius: 50%;
+  background: #25D366; box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  transition: transform 0.15s ease;
+}
+.wa-btn:hover { transform: scale(1.06); }
+.gc-btn {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--navy); color: #fff;
+  border: none; cursor: pointer; border-radius: 999px;
+  padding: 13px 20px 13px 15px; font-family: var(--font-body);
+  font-weight: 700; font-size: 0.95rem;
+  box-shadow: 0 8px 24px rgba(36,55,85,0.35);
+  transition: transform 0.15s ease;
+}
+.gc-btn:hover { transform: scale(1.04); }
+.gc-btn img { width: 24px; height: 24px; }
+
+.gc-panel {
+  position: fixed; right: 22px; bottom: 90px; z-index: 95;
+  width: min(380px, calc(100vw - 32px));
+  height: min(540px, calc(100vh - 130px));
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(26,41,64,0.35);
+  display: none; flex-direction: column; overflow: hidden;
+  border: 1px solid var(--line);
+}
+.gc-panel.open { display: flex; }
+.gc-head {
+  background: var(--navy); color: #fff;
+  padding: 16px 18px; display: flex; align-items: center; gap: 12px;
+}
+.gc-head img { width: 30px; height: 30px; }
+.gc-head .t { font-weight: 800; font-size: 1rem; }
+.gc-head .s { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
+.gc-head button {
+  margin-left: auto; background: none; border: none; color: rgba(255,255,255,0.7);
+  font-size: 1.3rem; cursor: pointer; line-height: 1;
+}
+.gc-msgs { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 10px; background: var(--beige); }
+.gc-msg { max-width: 85%; padding: 10px 14px; border-radius: 14px; font-size: 0.92rem; line-height: 1.5; white-space: pre-wrap; }
+.gc-msg.bot { background: #fff; border: 1px solid var(--line); border-bottom-left-radius: 4px; align-self: flex-start; }
+.gc-msg.user { background: var(--blue); color: #fff; border-bottom-right-radius: 4px; align-self: flex-end; }
+.gc-msg.typing { color: var(--ink-soft); font-style: italic; }
+.gc-input { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--line); background: #fff; }
+.gc-input input {
+  flex: 1; font-family: var(--font-body); font-size: 0.95rem;
+  padding: 11px 14px; border: 1.5px solid var(--line); border-radius: 999px;
+}
+.gc-input input:focus { outline: none; border-color: var(--blue); }
+.gc-input button {
+  background: var(--navy); color: #fff; border: none; cursor: pointer;
+  border-radius: 50%; width: 42px; height: 42px; font-size: 1rem; font-weight: 700;
+}
+.gc-note { font-size: 0.7rem; color: var(--ink-soft); text-align: center; padding: 0 12px 10px; background: #fff; }
+
+/* Contactopties (demo-pagina) */
+.contact-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+@media (max-width: 860px) { .contact-3 { grid-template-columns: 1fr; } .gc-panel { bottom: 84px; } }
+
+/* ── Hero v2 — richting "licht & scherp" (variant A, 31-07) ── */
+.hero { position: relative; overflow: hidden; }
+.hero-arc { position: absolute; right: -160px; top: -210px; width: 760px; height: 760px; pointer-events: none; z-index: 0; }
+.hero .wrap { position: relative; z-index: 2; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+h1 .accent { color: var(--blue); font-style: normal; }
+.hero-visual { position: relative; }
+.mock-panel {
+  background: #fff; border-radius: 18px; padding: 22px 22px 18px;
+  max-width: 470px; margin-left: auto;
+  box-shadow: 0 24px 60px rgba(26,41,64,0.14), 0 2px 8px rgba(26,41,64,0.06);
+}
+.mock-panel .phead { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.mock-panel .phead img { width: 26px; height: 26px; border-radius: 6px; }
+.mock-panel .phead .t { font-weight: 700; font-size: 0.95rem; color: var(--navy-dark); }
+.mock-panel .phead .s { font-size: 0.75rem; color: var(--grey); }
+.mock-badge { margin-left: auto; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: #E8F5EF; color: #1d7a56; }
+.mock-row { display: flex; align-items: center; gap: 12px; border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; background: #F6F7F9; }
+.mock-row .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; margin: 0; box-shadow: none; }
+.mock-row .seg { font-weight: 700; font-size: 0.85rem; white-space: nowrap; color: var(--navy-dark); }
+.mock-row .act { font-size: 0.8rem; margin-left: auto; text-align: right; color: var(--grey); }
+.mock-spark { display: flex; align-items: flex-end; gap: 5px; height: 44px; padding: 0 4px; margin-top: 14px; }
+.mock-spark i { flex: 1; border-radius: 3px 3px 0 0; display: block; }
+.mock-foot { display: flex; justify-content: space-between; font-size: 0.7rem; margin-top: 8px; padding: 0 4px; color: #9aa4af; }
+.mock-chip {
+  position: absolute; right: -10px; bottom: -22px;
+  background: var(--navy); color: #fff; border-radius: 14px; padding: 12px 16px;
+  font-size: 0.8rem; font-weight: 600; display: flex; gap: 10px; align-items: center;
+  box-shadow: 0 12px 32px rgba(16,26,44,0.18); z-index: 3;
+}
+.mock-chip .up { font-weight: 800; color: #7fd6ae; }
+
+/* Boog-motief in donkere secties */
+.section.navy { position: relative; overflow: hidden; }
+.section.navy .wrap { position: relative; z-index: 2; }
+.section-arc { position: absolute; right: -200px; top: -160px; width: 560px; height: 560px; pointer-events: none; z-index: 0; }
+
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .mock-panel { margin: 0 auto; }
+  .hero-arc { display: none; }
+  .mock-chip { right: 8px; }
+}
+
+/* ── Conclusie-kaarten: wat koppeling oplevert ── */
+.conclusie {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.conclusie:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(36,55,85,0.10); }
+.conclusie .sys {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  padding-left: 14px;
+  border-left: 3px solid #D7DDE5;
+  max-width: none;
+}
+.conclusie .ziet {
+  margin-top: 6px;
+  padding: 14px 16px;
+  background: rgba(74,111,165,0.09);
+  border-radius: 10px;
+  font-size: 0.93rem;
+  max-width: none;
+}
+.conclusie .ziet strong { color: var(--navy-dark); }
+.conclusie .actie {
+  font-weight: 800;
+  color: var(--blue-dark);
+  font-size: 0.95rem;
+  margin-top: 2px;
+  max-width: none;
+}
+
+/* Langere hero-kop: iets kleiner zodat hij in ~3 regels valt */
+.hero-grid h1 { font-size: clamp(2.3rem, 3.6vw, 3.2rem); }
+
+/* Actiepunten in de hero */
+.hero-punten { display: flex; flex-direction: column; gap: 9px; margin-top: 24px; }
+.hero-punten .punt { display: flex; gap: 11px; align-items: baseline; font-size: 0.99rem; color: var(--ink-soft); }
+.hero-punten .punt .pijl { color: var(--blue-dark); font-weight: 800; flex: none; }
+.hero-punten .punt strong { color: var(--navy-dark); }
+
+/* ── Product-teasers: gestileerde nep-UI in feature-rows ── */
+.feature-row .visual { padding: 36px 32px; }
+.teaser {
+  background: #fff; border-radius: 16px; padding: 20px 20px 16px; width: 100%;
+  box-shadow: 0 18px 44px rgba(10,18,32,0.35);
+  font-size: 0.85rem;
+}
+.teaser .thead { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
+.teaser .thead img { width: 22px; height: 22px; border-radius: 5px; }
+.teaser .thead .t { font-weight: 700; font-size: 0.88rem; color: var(--navy-dark); }
+.teaser .thead .tag { margin-left: auto; font-size: 0.66rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: rgba(74,111,165,0.12); color: var(--blue-dark); }
+/* trechter */
+.t-funnel .frow { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.t-funnel .frow .lbl { width: 84px; font-weight: 700; font-size: 0.78rem; color: var(--navy-dark); flex: none; }
+.t-funnel .frow .bar { height: 22px; border-radius: 6px; background: var(--blue); }
+.t-funnel .frow .val { font-size: 0.76rem; color: var(--grey); }
+/* matrix */
+.t-matrix .mgrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.t-matrix .cel { position: relative; height: 34px; border-radius: 6px; opacity: 0.9; }
+.t-matrix .bub { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); background: #fff; border: 2px solid rgba(36,55,85,0.25); border-radius: 50%; }
+.t-matrix .mleg { display: flex; gap: 14px; margin-top: 12px; font-size: 0.72rem; color: var(--grey); flex-wrap: wrap; }
+.t-matrix .mleg i { display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 5px; }
+/* advies-rijen */
+.t-advies .arow { display: flex; align-items: center; gap: 10px; background: #F6F7F9; border-radius: 10px; padding: 11px 13px; margin-bottom: 8px; }
+.t-advies .arow .auto { font-weight: 700; font-size: 0.8rem; color: var(--navy-dark); }
+.t-advies .arow .chip { margin-left: auto; font-size: 0.7rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; flex: none; }
+.t-advies .arow .adv { font-size: 0.76rem; color: var(--grey); }
+.t-advies .arow.hl { background: rgba(74,111,165,0.10); outline: 1.5px solid rgba(74,111,165,0.35); }
+
+/* Merkzin als afsluiter in de demo-band */
+.cta-band .slotzin {
+  margin: 24px auto 0;
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: rgba(255,255,255,0.92);
+}
+
+/* ── GripCoach-stem in het hero-paneel ── */
+.mock-voice { display: flex; gap: 10px; margin-top: 14px; background: rgba(74,111,165,0.09); border-radius: 12px; padding: 12px 14px; align-items: flex-start; }
+.mock-voice img { width: 20px; height: 20px; flex: none; margin-top: 2px; }
+.mock-voice p { font-size: 0.83rem; line-height: 1.5; color: var(--ink-soft); margin: 0; max-width: none; }
+.mock-voice strong { color: var(--navy-dark); }
+
+/* ── Koppel-strip: systemen in, conclusies uit ── */
+.koppel-strip {
+  margin-top: 64px;
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 30px 40px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.koppel-strip .bronnen { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.koppel-strip .bron {
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
+  white-space: nowrap;
+  text-align: center;
+}
+.koppel-strip .pijl { color: var(--blue); font-size: 1.5rem; font-weight: 800; flex: none; }
+.koppel-strip .kern { display: flex; align-items: center; gap: 13px; font-weight: 800; font-size: 1.05rem; line-height: 1.3; flex: none; }
+.koppel-strip .kern img { width: 42px; height: 42px; }
+.koppel-strip .uitkomst { font-size: 0.95rem; color: rgba(255,255,255,0.8); max-width: 26ch; margin: 0; }
+.koppel-strip .uitkomst strong { color: #fff; }
+@media (max-width: 980px) {
+  .koppel-strip { flex-direction: column; text-align: center; padding: 28px 24px; gap: 16px; }
+  .koppel-strip .bronnen { grid-template-columns: 1fr 1fr; width: 100%; }
+  .koppel-strip .pijl { transform: rotate(90deg); }
+  .koppel-strip .uitkomst { max-width: 34ch; }
+}
+
+/* Koppel-strip: zes bronnen + tweetraps kern */
+.koppel-strip .bronnen { grid-template-columns: 1fr 1fr; }
+.koppel-strip .bron { font-size: 0.78rem; padding: 6px 13px; }
+.koppel-strip .kern span small { display: block; font-weight: 600; font-size: 0.78rem; color: rgba(255,255,255,0.7); margin-top: 3px; line-height: 1.4; }
+
+/* GripCoach-sectie met paneel */
+.gc-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+.gc-grid .mock-panel { box-shadow: 0 30px 70px rgba(0,0,0,0.35); }
+@media (max-width: 980px) {
+  .gc-grid { grid-template-columns: 1fr; gap: 44px; }
+}
+
+/* Fix: paneel-teksten behouden hun eigen kleur binnen donkere secties */
+.section.navy .mock-panel .mock-voice p { color: var(--ink-soft); }
+.section.navy .mock-panel .mock-voice strong { color: var(--navy-dark); }
+
+/* Demo-knop in de header: witte letters */
+nav.main a.btn-primary { color: var(--white); }
+
+/* GripCoach-knop: wit zodat hij op licht én donker opvalt */
+.gc-btn {
+  background: #fff;
+  color: var(--navy-dark);
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(26,41,64,0.28);
+}
+
+/* ── Lichtere onderkant: frisse demo-band + lichte footer (31-07) ── */
+.section.navy.cta-band { background: linear-gradient(135deg, #1A2940 0%, #243755 55%, #2E466B 100%); }
+.cta-band .kicker { color: #8FB4E8; }
+.cta-band .slotzin { color: #fff; }
+.cta-band .btn-primary { background: #fff; color: var(--navy-dark); box-shadow: 0 8px 24px rgba(16,26,44,0.22); }
+.cta-band .btn-primary:hover { background: #F0F3F8; }
+
+.site-footer { background: var(--beige); color: var(--ink-soft); border-top: 1px solid var(--line); }
+.site-footer a { color: var(--ink-soft); }
+.site-footer a:hover { color: var(--navy); }
+.site-footer h4 { color: var(--grey); }
+.site-footer .bottom { border-top: 1px solid var(--line); color: var(--grey); }
+
+/* ── Leesbaarheid + verfijning (feedback Edwin 01-08) ── */
+/* Lichtblauwe koppen op donker: veel lichter */
+.section.navy .card .num { color: #DCE8F8; }
+.section.navy .kicker { color: #8FB4E8; }
+.layer.l3 .tag { color: #8FB4E8; }
+
+/* Lagen als piramide: fundament breed, Grip smal bovenop */
+.layer.l3 { width: 78%; margin: 0 auto; }
+.layer.l2 { width: 89%; margin: 0 auto; }
+.layer.l1 { width: 100%; }
+@media (max-width: 860px) {
+  .layer.l3, .layer.l2 { width: 100%; }
+}
+
+/* Koppel-strip: bronnen als lichtgrijze systeemknoppen */
+.koppel-strip .bron {
+  background: #E9EDF2;
+  border: none;
+  color: var(--navy-dark);
+  font-weight: 700;
+}
+
+/* Mobiele header: logo en demo-knop naast elkaar zonder overlap */
+@media (max-width: 860px) {
+  .site-header .inner { padding: 12px 16px; gap: 10px; }
+  .logo img { width: 26px !important; height: 26px !important; margin-right: 7px !important; }
+  .logo .grip, .logo .auto { font-size: 1.02rem; }
+  nav.main { gap: 10px; }
+  nav.main .btn { padding: 9px 15px; font-size: 0.84rem; white-space: nowrap; }
+}
+
+/* Mobiel: GripCoach-knop als compacte ronde knop */
+@media (max-width: 860px) {
+  .gc-btn { width: 54px; height: 54px; padding: 0; border-radius: 50%; justify-content: center; }
+  .gc-btn .gc-label { display: none; }
+  .gc-btn img { width: 28px; height: 28px; }
+}
+
+/* ── Web-strip: radar-web van systemen rond Grip ── */
+.web-strip {
+  margin-top: 64px;
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 30px 44px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 40px;
+  align-items: center;
+  color: #fff;
+}
+.web-strip .web { width: 100%; height: auto; display: block; }
+.wt-kop { font-family: var(--font-head); font-weight: 800; font-size: 1.45rem; line-height: 1.25; color: #fff; max-width: none; }
+.wt-kop small { display: block; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.75); margin-top: 8px; line-height: 1.55; }
+.wt-focus {
+  margin-top: 22px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+}
+.wt-focus img { width: 24px; height: 24px; flex: none; margin-top: 2px; }
+.wt-focus p { font-size: 0.92rem; line-height: 1.55; color: var(--ink-soft); max-width: none; margin: 0; }
+.wt-focus strong { color: var(--navy-dark); }
+@media (max-width: 980px) {
+  .web-strip { grid-template-columns: 1fr; padding: 26px 20px; gap: 24px; }
+}
+
+/* Piramide duidelijker: donkerblauwe rand op laag 1 en 2 */
+.layer.l2, .layer.l1 { border: 1.5px solid rgba(36,55,85,0.45); }
+
+/* Footer: WhatsApp als grijze knop */
+.site-footer .wa-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #E2E6EC;
+  color: var(--navy-dark);
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.site-footer .wa-footer:hover { background: #D6DCE5; color: var(--navy-dark); }
+
+/* ── Mobiel hamburger-menu ── */
+.menu-btn { display: none; background: none; border: none; color: var(--navy); cursor: pointer; padding: 4px; line-height: 0; }
+.mobile-nav { display: none; }
+@media (max-width: 860px) {
+  .menu-btn { display: inline-flex; align-items: center; }
+  .mobile-nav { display: none; flex-direction: column; background: #fff; border-top: 1px solid var(--line); padding: 4px 20px 10px; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { padding: 13px 2px; font-weight: 700; font-size: 1rem; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a[aria-current="page"] { color: var(--blue-dark); }
+}
+
+/* Mobiel: in feature-rows altijd eerst de tekst, dan de afbeelding */
+@media (max-width: 860px) {
+  .feature-row .visual { order: 2; }
+}
+
+/* Actieve menupagina duidelijker: blauw streepje eronder */
+nav.main a:not(.btn) { position: relative; padding-bottom: 3px; }
+nav.main a[aria-current="page"]:not(.btn) { color: var(--navy); }
+nav.main a[aria-current="page"]:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -5px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--blue);
+}
