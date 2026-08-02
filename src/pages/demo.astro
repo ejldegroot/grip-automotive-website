@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Demo aanvragen — Grip Automotive"
+  description="Vraag een demo van Grip Automotive aan. In een half uur zie je hoe inkoop, pricing en leads samenkomen — op het niveau waarop jij stuurt."
+>
+  <section class="hero" style="padding-bottom:48px;">
+    <div class="wrap">
+      <p class="kicker">Demo aanvragen</p>
+      <h1>Zie Grip werken op jouw voorraad</h1>
+      <p class="lead">
+        In een online demo van een half uur laten we zien hoe Grip Automotive de vraag in jouw markt
+        zichtbaar maakt — per segment, merk of model — en hoe inkoop, pricing en leadopvolging daarop
+        meebewegen. Geen verkooppraatje, gewoon het product.
+      </p>
+    </div>
+  </section>
+
+  <section class="section white">
+    <div class="wrap" style="display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items:start;">
+      <form class="demo-form" name="demo" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/bedankt/">
+        <input type="hidden" name="form-name" value="demo" />
+        <p style="display:none;"><label>Niet invullen: <input name="bot-field" /></label></p>
+        <div>
+          <label for="naam">Naam</label>
+          <input id="naam" name="naam" type="text" required autocomplete="name" />
+        </div>
+        <div>
+          <label for="bedrijf">Bedrijfsnaam</label>
+          <input id="bedrijf" name="bedrijf" type="text" required autocomplete="organization" />
+        </div>
+        <div>
+          <label for="email">E-mailadres</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div>
+          <label for="telefoon">Telefoonnummer <span style="font-weight:400; color:var(--ink-soft);">(optioneel)</span></label>
+          <input id="telefoon" name="telefoon" type="tel" autocomplete="tel" />
+        </div>
+        <div>
+          <label for="voorraad">Hoeveel auto's heb je op voorraad?</label>
+          <select id="voorraad" name="voorraad">
+            <option>Tot 50</option>
+            <option>50 – 150</option>
+            <option>150 – 400</option>
+            <option>Meer dan 400</option>
+          </select>
+        </div>
+        <div>
+          <label for="bericht">Waar wil je meer grip op? <span style="font-weight:400; color:var(--ink-soft);">(optioneel)</span></label>
+          <textarea id="bericht" name="bericht" rows="4" placeholder="Bijv. inkoop, pricing, leadopvolging…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Vraag de demo aan</button>
+      </form>
+
+      <div>
+        <h3>Wat je kunt verwachten</h3>
+        <div class="grid" style="margin-top:20px; gap:16px;">
+          <div class="card">
+            <p><strong>Binnen één werkdag</strong> reactie om een moment te plannen dat jou uitkomt.</p>
+          </div>
+          <div class="card">
+            <p><strong>Een half uur, online.</strong> We lopen door het product met echte data en jouw vragen als leidraad.</p>
+          </div>
+          <div class="card">
+            <p><strong>Geen verplichtingen.</strong> Je weet daarna precies of Grip iets voor jouw bedrijf is.</p>
+          </div>
+        </div>
+        <p class="mt-2" style="color:var(--ink-soft); font-size:0.95rem;">
+          Wil je direct contact met Grip? <a href="https://wa.me/31622815389?text=Hoi%20Grip%2C%20ik%20heb%20een%20vraag%20over%20Grip%20Automotive." target="_blank" rel="noopener">WhatsApp dan</a>,
+          <a href="#" data-open-gripcoach>stel je vraag aan GripCoach</a>, of mail naar
+          <a href="mailto:info@grip-automotive.com">info@grip-automotive.com</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @media (max-width: 860px) {
+    .section.white .wrap { grid-template-columns: 1fr !important; gap: 40px !important; }
+  }
+</style>
