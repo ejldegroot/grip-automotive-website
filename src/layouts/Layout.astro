@@ -1,0 +1,211 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/inter/800.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/product/', label: 'Product' },
+  { href: '/waarom-grip/', label: 'Waarom Grip' },
+  { href: '/over-griplab/', label: 'Over GripLab' },
+];
+const isActive = (href: string) => path === href || path === href.replace(/\/$/, '');
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={new URL(path, Astro.site)} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="inner">
+        <a href="/" class="logo" aria-label="Grip Automotive — home">
+          <img src="/logo-icon.svg" alt="" width="34" height="34" style="margin-right:10px; border-radius:8px;" />
+          <span class="grip">Grip&nbsp;</span><span class="auto">Automotive</span>
+        </a>
+        <nav class="main" aria-label="Hoofdmenu">
+          {nav.map((item) => (
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+          ))}
+          <a href="/demo/" class="btn btn-primary">Demo aanvragen</a>
+          <button class="menu-btn" id="menu-btn" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-nav">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+          </button>
+        </nav>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobiel menu">
+        {nav.map((item) => (
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+        ))}
+        <a href="/demo/">Demo aanvragen</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <section class="section navy cta-band">
+      <svg class="section-arc" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M 70.1 21.3 A 35 35 0 1 0 70.1 78.7" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="8.5" stroke-linecap="round"/><path d="M 62.35 56.15 H 89.15 Q 92.65 56.15 92.65 59.65 V 86.45 Q 92.65 89.25 89.85 89.25 H 88.25 Q 85.45 89.25 85.45 86.45 V 63.35 H 62.35 Q 59.55 63.35 59.55 60.55 V 58.95 Q 59.55 56.15 62.35 56.15 Z" fill="#ffffff" fill-opacity="0.06"/>
+      </svg>
+      <div class="wrap">
+        <p class="kicker">Zien hoe het werkt?</p>
+        <h2>Eén demo. Jouw cijfers, jouw markt.</h2>
+        <p class="lead">In een half uur laten we zien hoe Grip Automotive inkoop, pricing en leads met elkaar verbindt — en wat dat voor jouw voorraad betekent.</p>
+        <p class="slotzin">Betere beslissingen beginnen met beter inzicht.</p>
+        <a href="/demo/" class="btn btn-primary">Demo aanvragen</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="inner">
+        <div>
+          <a href="/" class="logo" style="margin-bottom:10px;">
+            <img src="/logo-icon.svg" alt="" width="30" height="30" style="margin-right:10px; border-radius:7px;" />
+            <span class="grip">Grip&nbsp;</span><span class="auto">Automotive</span>
+          </a>
+          <p style="font-size:0.9rem; max-width:34ch; color:var(--grey);">Wij het inzicht. Jij de beslissing.<br />Software voor autobedrijven die willen sturen in plaats van terugkijken.</p>
+        </div>
+        <div class="cols">
+          <div>
+            <h4>Site</h4>
+            <ul>
+              <li><a href="/product/">Product</a></li>
+              <li><a href="/waarom-grip/">Waarom Grip</a></li>
+              <li><a href="/over-griplab/">Over GripLab</a></li>
+              <li><a href="/demo/">Demo aanvragen</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:info@grip-automotive.com">info@grip-automotive.com</a></li>
+              <li><a href="https://griplab.nl" rel="noopener">griplab.nl</a></li>
+              <li style="margin-top:12px;">
+                <a class="wa-footer" href="https://wa.me/31622815389?text=Hoi%20Grip%2C%20ik%20heb%20een%20vraag%20over%20Grip%20Automotive." target="_blank" rel="noopener">
+                  <svg viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.6 2.5.9 3.8.9 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.2 0-2.4-.3-3.4-.8l-.6-.3-4.9.9 1-4.7-.4-.6c-.9-1.5-1.4-3.2-1.4-4.9 0-5.2 4.3-9.4 9.6-9.4s9.6 4.2 9.6 9.4-4.3 9.4-9.5 9.4z"/></svg>
+                  WhatsApp ons
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">© {new Date().getFullYear()} GripLab — Grip Automotive is een product van GripLab.</div>
+    </footer>
+    <script>
+      // Mobiel menu
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+          const open = mobileNav.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', String(open));
+        });
+      }
+      // Subtiele scroll-reveal
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const targets = document.querySelectorAll('.card, .feature-row, .layer, .segment-strip, .section h2, .section .lead');
+        targets.forEach((el) => el.classList.add('reveal'));
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.12 });
+        targets.forEach((el) => io.observe(el));
+      }
+    </script>
+    <!-- GripCoach + WhatsApp -->
+    <div class="float-stack">
+      <button class="gc-btn" id="gc-open" aria-label="Chat met GripCoach">
+        <img src="/logo-icon.svg" alt="" /><span class="gc-label">Vraag het GripCoach</span>
+      </button>
+      <a class="wa-btn" id="wa-btn" href="https://wa.me/31622815389?text=Hoi%20Grip%2C%20ik%20heb%20een%20vraag%20over%20Grip%20Automotive." target="_blank" rel="noopener" aria-label="Direct contact met Grip via WhatsApp" title="Wil je direct contact met Grip? WhatsApp dan.">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.6 2.5.9 3.8.9 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.2 0-2.4-.3-3.4-.8l-.6-.3-4.9.9 1-4.7-.4-.6c-.9-1.5-1.4-3.2-1.4-4.9 0-5.2 4.3-9.4 9.6-9.4s9.6 4.2 9.6 9.4-4.3 9.4-9.5 9.4zm5.3-7c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+      </a>
+    </div>
+    <div class="gc-panel" id="gc-panel" role="dialog" aria-label="GripCoach chat">
+      <div class="gc-head">
+        <img src="/logo-icon-dark.svg" alt="" />
+        <div><div class="t">GripCoach</div><div class="s">De stem van het platform</div></div>
+        <button id="gc-close" aria-label="Sluiten">&times;</button>
+      </div>
+      <div class="gc-msgs" id="gc-msgs"></div>
+      <div class="gc-input">
+        <input id="gc-text" type="text" placeholder="Stel je vraag…" maxlength="1000" />
+        <button id="gc-send" aria-label="Versturen">&#8599;</button>
+      </div>
+      <div class="gc-note">GripCoach is AI en kan zich vergissen. Wil je direct contact met Grip? WhatsApp dan via de groene knop.</div>
+    </div>
+    <script>
+      const gcPanel = document.getElementById('gc-panel');
+      const gcMsgs = document.getElementById('gc-msgs');
+      const gcText = document.getElementById('gc-text');
+      const history = [];
+      const convId = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2));
+      let busy = false;
+      function addMsg(role, text, typing = false) {
+        const el = document.createElement('div');
+        el.className = 'gc-msg ' + (role === 'user' ? 'user' : 'bot') + (typing ? ' typing' : '');
+        el.textContent = text;
+        gcMsgs.appendChild(el);
+        gcMsgs.scrollTop = gcMsgs.scrollHeight;
+        return el;
+      }
+      function openPanel() {
+        gcPanel.classList.add('open');
+        if (history.length === 0) {
+          addMsg('assistant', 'Hoi! Ik ben GripCoach. Vraag me wat je wilt over Grip Automotive — wat het is, voor wie het werkt, of wat het jou zou kunnen opleveren.');
+        }
+        gcText.focus();
+      }
+      document.getElementById('gc-open').addEventListener('click', openPanel);
+      document.getElementById('gc-close').addEventListener('click', () => gcPanel.classList.remove('open'));
+      document.querySelectorAll('[data-open-gripcoach]').forEach((el) => el.addEventListener('click', (e) => { e.preventDefault(); openPanel(); }));
+      async function send() {
+        const text = gcText.value.trim();
+        if (!text || busy) return;
+        gcText.value = '';
+        addMsg('user', text);
+        history.push({ role: 'user', content: text });
+        busy = true;
+        const t = addMsg('assistant', 'GripCoach denkt na…', true);
+        try {
+          const res = await fetch('/api/gripcoach', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ messages: history, conversation_id: convId }),
+          });
+          const data = await res.json();
+          t.remove();
+          const reply = data.reply || 'Er ging iets mis — probeer het nog eens.';
+          addMsg('assistant', reply);
+          history.push({ role: 'assistant', content: reply });
+        } catch {
+          t.remove();
+          addMsg('assistant', 'Ik kan even niet nadenken (verbinding). Probeer het zo nog eens, of app Edwin via de groene knop.');
+        }
+        busy = false;
+      }
+      document.getElementById('gc-send').addEventListener('click', send);
+      gcText.addEventListener('keydown', (e) => { if (e.key === 'Enter') send(); });
+    </script>
+  </body>
+</html>
