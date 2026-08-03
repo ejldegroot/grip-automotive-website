@@ -505,6 +505,28 @@ h1 .accent { color: var(--blue); font-style: normal; }
 .t-advies .arow .adv { font-size: 0.76rem; color: var(--grey); }
 .t-advies .arow.hl { background: rgba(74,111,165,0.10); outline: 1.5px solid rgba(74,111,165,0.35); }
 
+/* ── Workflow-teaser: doorlooptijd per fase ── */
+.t-flow .dl-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+.t-flow .dl-head b { font-size: 0.8rem; color: var(--navy-dark); }
+.t-flow .dl-head .tot { font-family: var(--font-head); font-weight: 800; font-size: 1.35rem; color: var(--navy-dark); line-height: 1; }
+.t-flow .dl-head .tot small { font-size: 0.66rem; font-weight: 700; color: var(--grey); margin-left: 3px; }
+.t-flow .dl-bar { display: flex; gap: 3px; margin-bottom: 8px; }
+.t-flow .dl-bar i { display: block; height: 9px; border-radius: 5px; }
+.t-flow .dl-legend { display: flex; justify-content: space-between; gap: 8px; font-size: 0.68rem; color: var(--grey); margin-bottom: 16px; }
+.t-flow .dl-legend span { text-align: center; line-height: 1.35; }
+.t-flow .dl-legend b { display: block; color: var(--navy-dark); font-size: 0.8rem; }
+.t-flow .sub { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding-top: 12px; border-top: 1px solid var(--line); margin-bottom: 9px; }
+.t-flow .sub b { font-size: 0.78rem; color: var(--navy-dark); }
+.t-flow .sub span { font-size: 0.68rem; color: var(--grey); }
+.t-flow .srow { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 8px; font-size: 0.76rem; margin-bottom: 5px; background: #F6F7F9; }
+.t-flow .srow .stap { font-weight: 700; color: var(--navy-dark); flex: 1; }
+.t-flow .srow .dgn { font-weight: 800; color: var(--blue-dark); white-space: nowrap; }
+.t-flow .srow .bak { color: var(--grey); white-space: nowrap; width: 62px; text-align: right; }
+.t-flow .srow.hl { background: #FBF1DC; outline: 1.5px solid rgba(224,169,62,0.55); }
+.t-flow .srow.hl .dgn { color: #8a6116; }
+.t-flow .wacht { display: flex; gap: 8px; align-items: baseline; margin-top: 10px; font-size: 0.72rem; color: var(--grey); }
+.t-flow .wacht b { color: var(--navy-dark); font-size: 0.78rem; white-space: nowrap; flex: none; }
+
 /* Merkzin als afsluiter in de demo-band */
 .cta-band .slotzin {
   margin: 24px auto 0;
