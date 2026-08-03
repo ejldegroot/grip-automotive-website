@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout
   title="Product — Grip Automotive"
-  description="Lead management, inkoopadvies, pricing en GripCoach — verbonden op het niveau waarop jij stuurt: segment, merk of model. Zo werkt Grip Automotive."
+  description="Lead management, inkoopadvies, pricing, workflow en GripCoach — verbonden op het niveau waarop jij stuurt: segment, merk of model. Zo werkt Grip Automotive."
 >
   <section class="hero" style="padding-bottom:48px;">
     <div class="wrap">
@@ -48,6 +48,18 @@ import Layout from '../layouts/Layout.astro';
         <div class="card">
           <h3>Sales management</h3>
           <p>Zie waar de kracht van elke verkoper ligt: wie welk segment of model het best verzilvert, van lead tot order. Zo komt elke lead bij de juiste verkoper terecht — en coach je gericht in plaats van op gevoel.</p>
+        </div>
+        <div class="card">
+          <h3>Showroom &amp; voorraad</h3>
+          <p>Je hele voorraad in één beeld, met stadagen, marktpositie en vraag naast elkaar. Filter op het niveau waarop jij stuurt en zie meteen welke auto's aandacht verdienen — en welke gewoon hun werk doen.</p>
+        </div>
+        <div class="card">
+          <h3>Workflow management</h3>
+          <p>Waar staat elke auto in het proces — en hoe lang al? Grip meet de doorlooptijd van binnenkomst tot aflevering, per fase en per stap, en laat zien welke auto het langst wacht. Zo grijp je in vóórdat de stadagen het vertellen.</p>
+        </div>
+        <div class="card">
+          <h3>Sales afspraken &amp; afleveringen</h3>
+          <p>Proefritten, afspraken en afleveringen in één planning, gekoppeld aan je voorraad. Iedereen ziet wat er vandaag gebeurt — en jij ziet of de afleverstraat de verkoop bijhoudt.</p>
         </div>
       </div>
     </div>
@@ -223,6 +235,56 @@ import Layout from '../layouts/Layout.astro';
               <span class="chip" style="background:rgba(74,111,165,0.12);color:#3D5D8C;">prijs omhoog</span>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="visual">
+          <div class="teaser t-flow" aria-label="Teaser: doorlooptijd per fase, van binnenkomst tot aflevering">
+            <div class="thead">
+              <img src="/logo-icon.svg" alt="" />
+              <span class="t">Workflow management</span>
+              <span class="tag">binnenkomst → aflevering</span>
+            </div>
+            <div class="dl-head">
+              <b>Doorlooptijd</b>
+              <span class="tot">44,6<small>dgn totaal</small></span>
+            </div>
+            <div class="dl-bar">
+              <i style="width:26%; background:#4A6FA5;"></i>
+              <i style="width:66%; background:#8FB4E8;"></i>
+              <i style="width:8%; background:#243755;"></i>
+            </div>
+            <div class="dl-legend">
+              <span><b>11,8 dg</b>instroom → online</span>
+              <span><b>29,3 dg</b>online → verkocht</span>
+              <span><b>3,5 dg</b>verkocht → afgeleverd</span>
+            </div>
+            <div class="sub"><b>Instroomproces</b><span>11,8 dgn tot online</span></div>
+            <div class="srow"><span class="stap">Werkplaats</span><span class="dgn">2,2 dg</span><span class="bak">9 in bak</span></div>
+            <div class="srow hl"><span class="stap">Cosmetisch</span><span class="dgn">3,0 dg</span><span class="bak">8 in bak</span></div>
+            <div class="srow"><span class="stap">Poetsen</span><span class="dgn">2,4 dg</span><span class="bak">10 in bak</span></div>
+            <div class="srow"><span class="stap">Fotografie</span><span class="dgn">2,3 dg</span><span class="bak">1 in bak</span></div>
+            <div class="srow"><span class="stap">Online zetten</span><span class="dgn">2,1 dg</span><span class="bak">11 in bak</span></div>
+            <div class="wacht"><b>37 dg</b> langst wachtend · staat nog in cosmetisch</div>
+          </div>
+        </div>
+        <div>
+          <p class="kicker">Workflow management</p>
+          <h2 style="font-size:2rem;">Elke dag dat een auto stilstaat, kost geld</h2>
+          <p class="mt-1">
+            Grip meet de hele reis van een auto: van binnenkomst tot aflevering, opgeknipt in fases.
+            Hoe lang duurt het voordat een auto ná inkoop online staat, hoe lang staat hij daarna te
+            koop, en hoe snel gaat hij van verkocht naar afgeleverd? Je ziet in één oogopslag welke
+            fase de tijd opeet — en dus waar je dagen kunt winnen.
+          </p>
+          <p class="mt-1">
+            Binnen het instroomproces gaat het per stap: werkplaats, cosmetisch, poetsen, fotografie,
+            online zetten. Per stap zie je de gemiddelde tijd, hoeveel auto's er wachten en of het
+            oploopt of juist vlotter gaat. En de auto die het langst wacht ligt er meteen uit —
+            met kenteken, zodat er iets mee gebeurt in plaats van dat hij stilletjes stadagen
+            verzamelt.
+          </p>
         </div>
       </div>
 
